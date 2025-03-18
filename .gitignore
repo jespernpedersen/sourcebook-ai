@@ -174,4 +174,5 @@ cython_debug/
 .pypirc
 
 # Files
-*.md
+phb_sourcebook.md
+sourcebook.md
