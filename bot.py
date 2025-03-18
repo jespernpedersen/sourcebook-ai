@@ -7,11 +7,11 @@ from sentence_transformers import SentenceTransformer, util
 import torch
 
 # Set all Hugging Face cache directories to another drive
-cache_dir = "X:\\LLM\\huggingface_cache"  # Change this path to your desired location
+cache_dir = os.getenv("CACHE_LOCATION")
 os.environ["TRANSFORMERS_CACHE"] = cache_dir
 os.environ["HF_HOME"] = cache_dir
 os.environ["HUGGINGFACE_HUB_CACHE"] = cache_dir
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"  # Disable symlinks warning
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 print(f"Cache directory set to: {cache_dir}")
 
 # Load environment variables
@@ -21,9 +21,9 @@ DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 # Path to the markdown file
 MARKDOWN_FILE = "phb_sourcebook.md"
 
-# Load DeepSeek-R1-Distill-Qwen-1.5B model and tokenizer
+# Load modal and tokenizer
 try:
-    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"  # Use DeepSeek-R1-Distill-Qwen-1.5B
+    model_name = "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
     tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
     print("Tokenizer loaded successfully.")
     model = AutoModelForCausalLM.from_pretrained(
@@ -37,11 +37,9 @@ try:
     if torch.cuda.is_available():
         model = model.to("cuda")
     print(f"Model device: {model.device}")
-    print("DeepSeek-R1-Distill-Qwen-1.5B model loaded successfully.")
+    print("Model loaded successfully.")
 except Exception as e:
-    print(f"Error loading DeepSeek-R1-Distill-Qwen-1.5B model: {e}")
-    print(f"Ensure you have enough disk space on {cache_dir} and sufficient RAM/GPU memory.")
-    print(f"Try updating the `transformers` library with: `pip install --upgrade transformers`")
+    print(f"Error loading model: {e}")
     exit(1)
 
 # Load a sentence transformer for semantic search
