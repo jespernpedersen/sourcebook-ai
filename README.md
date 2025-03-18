@@ -110,7 +110,7 @@ This project is licensed under the MIT License. See the  [LICENSE](https://licen
 
 ----------
 
-## Acknowledgments
+## Acknowledgements
 
 -   [Hugging Face](https://huggingface.co/)  for providing the DeepSeek-R1-Distill-Qwen-1.5B model.
     
