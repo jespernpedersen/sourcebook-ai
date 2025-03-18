@@ -48,6 +48,9 @@ Sourcebook AI is a **Discord bot** that uses **AI** to retrieve and provide answ
 **Answer:** A campaign is a series of interconnected adventures that form a larger story, typically led by a Dungeon Master and played by a group of characters. These adventures can span multiple sessions and often involve a mix of combat, exploration, and role-playing.
 **Source:** Campaigns, Player's Handbook
 
+## Example
+![image](https://github.com/user-attachments/assets/4c950b78-98b8-4f73-a7cc-336ba0177ebb)
+
 ## Setup Instructions  
 ### Prerequisites  
 - Python 3.10  
